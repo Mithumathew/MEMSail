@@ -45,8 +45,16 @@ namespace MEMSail
             // Add framework services.
             services.AddApplicationInsightsTelemetry(Configuration);
 
+            // ?? add Dependency Injection support for BusServiceContext
+            services.AddDbContext<SailContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("SailConnection")));
+
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            // ?? support for Session variables
+            services.AddDistributedMemoryCache();
+            services.AddSession();
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
@@ -67,6 +75,8 @@ namespace MEMSail
 
             app.UseApplicationInsightsRequestTelemetry();
 
+            // ?? enable session variables for this site
+            app.UseSession();  
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

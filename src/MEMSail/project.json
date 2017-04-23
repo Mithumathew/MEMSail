@@ -1,4 +1,4 @@
-﻿{
+{
   "userSecretsId": "aspnet-MEMSail-8ba3c0e4-a8ef-43ce-85ee-bb54d0be5de8",
 
   "dependencies": {
@@ -41,10 +41,11 @@
       "version": "1.0.0-preview2-final",
       "type": "build"
     },
-    "Microsoft.VisualStudio.Web.CodeGenerators.Mvc":  {
+    "Microsoft.VisualStudio.Web.CodeGenerators.Mvc": {
       "version": "1.0.0-preview2-final",
       "type": "build"
-    }
+    },
+    "Microsoft.AspNetCore.Session": "1.0.0"
   },
 
   "tools": {

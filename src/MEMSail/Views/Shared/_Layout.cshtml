@@ -32,19 +32,36 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                    <li><a asp-area="" asp-controller="Towns" asp-action="Index">Town</a></li>
+                    <li><a asp-area="" asp-controller="Countries" asp-action="Index">Country</a></li>
+                    <li><a asp-area="" asp-controller="Provinces" asp-action="Index">Province</a></li>
                 </ul>
                 @await Html.PartialAsync("_LoginPartial")
             </div>
         </div>
     </div>
     <div class="container body-content">
+        <font color="red"><strong>@TempData["Message"]</strong></font>
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; 2017 - MEMSail</p>
-        </footer>
+            <footer>
+                @* a row will be placed horizontally, if the screen is wide enough *@
+                @* - if the screen is too narrow, the blocks will be stacked vertically *@
+                <div class="row">
+                    @* a row has 12 columns *@
+                    <div class="col-md-6">
+                        @* this block is 6 columns wide *@
+                        <p class="text-left"><a href="mailto:Emathew7417@conestogac.on.ca">Mithu E Mathew</a>-7477417-Computer Applications Development</p>
+                    </div>
+                    <div class="col-md-6">
+                        @* this block is also 6 columns wide *@
+                        <ul class="pull-right list-inline">
+                            <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
+                            <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </footer>
     </div>
 
     <environment names="Development">

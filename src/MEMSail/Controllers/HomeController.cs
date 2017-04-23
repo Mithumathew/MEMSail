@@ -10,6 +10,7 @@ namespace MEMSail.Controllers
     {
         public IActionResult Index()
         {
+            TempData["Message"] = "This is the temp data displaying on the home page.";
             return View();
         }
 
